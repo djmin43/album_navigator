@@ -54,12 +54,10 @@ const LoginForm = () => {
             [e.target.name]: e.target.value
         })
     }
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
         auth()
     }
-
- 
 
     return (
         <div className="auth-container">
