@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination'
+import CurrentPosts from './CurrentPosts'
 import axios from 'axios'
 
 interface Title {
@@ -11,37 +12,32 @@ interface Title {
 const Album = () => {
 
     const [posts, setPosts] = useState<Title[]>([])
-    const [currentPosts, setCurrentPosts] = useState<Title[]>([])
 
-    const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage] = useState(5)
-
-    const pageNumber = []
-    const maxPageNumber = posts.length/postsPerPage
-
-    for (let i = 1; i < maxPageNumber ; i++){
-        pageNumber.push(i)
-    }
-
-    const lastPostIndex = currentPage * postsPerPage
-    const firstPostIndex = lastPostIndex - postsPerPage
+    const [currentPage, setCurrentPage] = useState(1)
 
 
-    // Fetch data from jsonplaceholder, then select out posts for page
+
+    // Fetch data from jsonplaceholder
     const fetchPosts = async () => {
         try {
             const titles = await axios.get('https://jsonplaceholder.typicode.com/albums')
-            await setPosts(titles.data)
-            const slicePosts = await posts.slice(firstPostIndex, lastPostIndex)
-            console.log(slicePosts)
-            await setCurrentPosts(slicePosts)            
+            await setPosts(titles.data)          
         } catch (error) {
             console.log(error)
         }
     }
+
+    // Delete an Item from Posts
     const deleteItem = (id: number) => {
         const deleteItem = posts.filter(item => item.id !== id)
         setPosts(deleteItem)
+    }
+
+    // Pagination
+    const maxPageNumber = posts.length/postsPerPage
+    const paginate = (pageNumber: number) => {
+        setCurrentPage(pageNumber)
     }
 
     // get data on render
@@ -49,27 +45,11 @@ const Album = () => {
         fetchPosts()
     }, [])
 
-    useEffect(() => {
-        fetchPosts()
-    }, [currentPage])
-
     return (
         <div>
-            <div>Album</div>
-            {currentPosts.map((item: Title) => 
-                <div key={item.id}>
-                <h4>Title:</h4>
-                <p>{item.title}</p>
-                <img src="https://via.placeholder.com/150" alt="album"/>
-                <button onClick={() => deleteItem(item.id)}>Delete</button>
-                </div>
-            )}
-        
-            <div>
-                {pageNumber.map(item => 
-                    <button key={item} onClick={() => setCurrentPage(item)}>{item}</button>
-                )}
-            </div>
+            <h1>Album</h1>
+            <CurrentPosts posts={posts} deleteItem={deleteItem} currentPage={currentPage} />
+            <Pagination currentPage={currentPage} maxPageNumber={maxPageNumber} paginate={paginate}/>
         </div>
     )
 }

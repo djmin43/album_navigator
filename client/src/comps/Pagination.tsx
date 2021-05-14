@@ -1,16 +1,26 @@
 import React from 'react'
 
-interface currentPageProps {
-    currentPage: number
+interface PaginationProps {
+    currentPage: number;
+    maxPageNumber: number;
+    paginate: any;
+
 }
 
-const Pagination = ({currentPage}: currentPageProps) => {
+const Pagination = ({currentPage, maxPageNumber, paginate}: PaginationProps) => {
 
-    
+    const pageNumber = []
+
+    for (let i = 1; i < maxPageNumber ; i++){
+        pageNumber.push(i)
+    }
+
     return (
         <div>
-            <h1>asjdfsksdfjk</h1>
-        </div>
+        {pageNumber.map(item => 
+            <button key={item} onClick={() => paginate(item)}>{item}</button>
+        )}
+    </div>
     )
 }
 
