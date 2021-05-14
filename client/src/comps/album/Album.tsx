@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination'
 import CurrentPosts from './CurrentPosts'
 import axios from 'axios'
+import '../../styles/Album.css'
+
 
 interface Title {
     userId: number;

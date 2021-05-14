@@ -1,0 +1,33 @@
+
+/* POSTS */
+
+.album-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    margin: 3vw
+}
+
+.post {
+    flex: 1 1 0;
+    padding-bottom: 1vw;
+    margin: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+}
+
+
+.post img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.post button{
+    width: 100%;
+    border: none;
+    padding: 1vw;
+    color: #fff;
+    background-color: #FF2367;
+}
+

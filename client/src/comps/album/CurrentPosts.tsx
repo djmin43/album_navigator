@@ -36,15 +36,12 @@ const CurrentPosts = ({posts, deleteItem, currentPage}: CurrentPostsProps) => {
     return (
         <div className="album-container">
             {currentPosts.map((item: Title) => 
-                <div className="album" key={item.id}>
-                {item.id}
-                <h4>Title:</h4>
-                <p>{item.title}</p>
-                <h4>User ID</h4>
-                <p>{item.userId}</p>
-                <img src="https://via.placeholder.com/150" alt="album"/>
-                <button onClick={() => deleteItem(item.id)}>Delete a post</button>
-                </div>
+                <span className="post" key={item.id}>
+                    <img src="https://via.placeholder.com/150" alt="album"/>
+                    <button onClick={() => deleteItem(item.id)}>DELETE</button>
+                    <p><i>{item.title}</i></p>
+                    <small>User ID: {item.userId}</small>
+                </span>
             )}
         </div>
     )

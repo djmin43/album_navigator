@@ -16,7 +16,7 @@ const Pagination = ({currentPage, maxPageNumber, paginate}: PaginationProps) => 
     }
 
     return (
-        <div>
+        <div className="pagination">
         {pageNumber.map(item => 
             <button key={item} onClick={() => paginate(item)}>{item}</button>
         )}
