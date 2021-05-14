@@ -1,11 +1,11 @@
 import Album from './comps/Album'
-import Authentication from './comps/Authentication'
+import LoginForm from './comps/LoginForm'
 import './App.css';
 
 function App() {
   return (
     <div>
-        <Authentication />
+        <LoginForm />
         <Album />
     </div>
   );
