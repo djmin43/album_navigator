@@ -1,15 +1,17 @@
 
 # CLIENT FOLDER
 # dependencies
-client/node_modules
-client/.pnp
+/node_modules
+/.pnp
 .pnp.js
+
 
 # testing
 /coverage
 
 # production
-client/build
+/build
+
 
 # misc
 .DS_Store
