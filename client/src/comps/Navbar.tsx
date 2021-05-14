@@ -8,9 +8,12 @@ import {
 
 const Navbar = () => {
     return (
-        <div>
-            <nav>
+        <div className="navbar">
+            <nav >
                 <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
                     <li>
                         <Link to="/auth">Log in</Link>
                     </li>

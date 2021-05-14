@@ -1,0 +1,22 @@
+.auth {
+    height: 75vh;
+    padding: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.auth button{
+    display: block;
+    width: 30vw;
+    border: none;
+    padding: 1vw;
+    color: #fff;
+    background-color: #115293;
+    border-radius: 5px;
+}
+
+.auth-form {
+    
+}

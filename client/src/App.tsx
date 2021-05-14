@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";import './App.css';
 import Header from './comps/Header'
 import Footer from './comps/Footer'
+import Home from './comps/Home'
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Header />
         <Navbar />
         <Switch>
+        <Route exact path="/">
+            <Home />
+          </Route>
           <Route exact path="/auth">
             <Authentication />
           </Route>

@@ -2,8 +2,10 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <div>
-            Welcome to Album Navigator
+        <div className="header">
+            <h2>
+                Welcome to Album Navigator
+            </h2>
         </div>
     )
 }

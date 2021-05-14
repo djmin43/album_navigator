@@ -1,12 +1,12 @@
 import LoginForm from './LoginForm'
 import Logout from './Logout'
 import Cookies from 'js-cookie'
-
+import '../../styles/Auth.css'
 
 const Authentication = () => {
 
     return (
-        <div>
+        <div className="auth">
             {Cookies.get('member') === 'success' ? 
             <div>
                 <h1>Welcome member!</h1>
