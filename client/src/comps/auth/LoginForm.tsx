@@ -26,6 +26,7 @@ const LoginForm = () => {
         if (userAuthInfo.email === userAuth.email && userAuthInfo.password === userAuth.password) {
             setErrorMessage('log in successful')
             Cookies.set('member', 'success', {expires: 3})
+            window.location.reload()
         } else formValidation()
     }
 
@@ -47,15 +48,22 @@ const LoginForm = () => {
 
     // Submit Form Control
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
         setUserAuth({
             ...userAuth,
             [e.target.name]: e.target.value
         })
     }
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        auth()
+    }
+
+ 
 
     return (
         <div>
-            <form onSubmit={auth}>
+            <form onSubmit={handleSubmit}>
                 <label>Email:
                     <input name="email" type="text" value={userAuth.email} onChange={handleChange}></input>
                 </label>

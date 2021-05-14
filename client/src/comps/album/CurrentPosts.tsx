@@ -34,9 +34,9 @@ const CurrentPosts = ({posts, deleteItem, currentPage}: CurrentPostsProps) => {
     }, [currentPage, posts])
 
     return (
-        <div>
+        <div className="album-container">
             {currentPosts.map((item: Title) => 
-                <div key={item.id}>
+                <div className="album" key={item.id}>
                 {item.id}
                 <h4>Title:</h4>
                 <p>{item.title}</p>

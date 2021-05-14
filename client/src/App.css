@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1{
+    font-size: calc(48px + 1vw);
+}
+
+h2 {
+    font-size: calc(36px + 1vw);
+}
+
+h4 {
+    font-size: calc(18px + 1vw);
+}
+
+p {
+    font-size: calc(12px + 1vw);
+}
+
+span {
+    font-size: calc(8px + 1vw)
+}
+
+/* NAVBAR */
+ul {
+    list-style-type: none;
+}
+
+/* ALBUM */
+
+.album-conatiner {
+    display: flex;
+
+}
+
+.album {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vw;
+}
+
+.album img {
+    margin: 1vw;
+    object-fit: contain;
+}
