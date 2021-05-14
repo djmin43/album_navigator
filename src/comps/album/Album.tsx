@@ -47,7 +47,7 @@ const Album = () => {
 
     return (
         <div className="album">
-            <h2>album</h2>
+            <h2>album posts</h2>
             <CurrentPosts posts={posts} deleteItem={deleteItem} currentPage={currentPage} />
             <Pagination currentPage={currentPage} maxPageNumber={maxPageNumber} paginate={paginate}/>
         </div>

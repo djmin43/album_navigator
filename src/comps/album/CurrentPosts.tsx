@@ -39,7 +39,7 @@ const CurrentPosts = ({posts, deleteItem, currentPage}: CurrentPostsProps) => {
                 <span className="post" key={item.id}>
                     <img src="https://via.placeholder.com/150" alt="album"/>
                     <button onClick={() => deleteItem(item.id)}>DELETE</button>
-                    <p><i>{item.title}</i></p>
+                    <h5><i>{item.title}</i></h5>
                     <small>User ID: {item.userId}</small>
                 </span>
             )}

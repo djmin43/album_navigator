@@ -61,7 +61,7 @@ const LoginForm = () => {
 
     return (
         <div className="auth-container">
-            <h2>Log in</h2>
+            <h4>Log in</h4>
             <form onSubmit={handleSubmit}>
                 <label>Email
                     <input name="email" type="text" value={userAuth.email} onChange={handleChange}></input>
