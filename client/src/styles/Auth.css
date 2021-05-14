@@ -1,6 +1,5 @@
 .auth {
-    height: 75vh;
-    padding: 5vw;
+    padding: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,15 +7,44 @@
 
 
 .auth button{
+
     display: block;
-    width: 30vw;
+    width: 100%;
     border: none;
+    margin-top: 3vw;
     padding: 1vw;
     color: #fff;
     background-color: #115293;
     border-radius: 5px;
+
 }
 
-.auth-form {
-    
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5vw;
+    width: 50vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.auth-container h2{ 
+    margin-bottom: 2vw;
+}
+
+.auth-container form label {
+    display: block;
+    font-size: 24px;
+}
+
+.auth-container form input {
+    padding: 0.3vw;
+    margin: 1vw 0;
+    width: 100%;
+}
+
+.auth-container form input:focus {
+    outline: none;
+}
+

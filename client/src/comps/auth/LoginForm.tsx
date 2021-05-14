@@ -62,13 +62,14 @@ const LoginForm = () => {
  
 
     return (
-        <div className="auth-form">
+        <div className="auth-container">
+            <h2>Log in</h2>
             <form onSubmit={handleSubmit}>
-                <label>Email:
+                <label>Email
                     <input name="email" type="text" value={userAuth.email} onChange={handleChange}></input>
                 </label>
 
-                <label>Password:
+                <label>Password
                     <input name="password" type="password" value={userAuth.password} onChange={handleChange}></input>
                 </label>
 
