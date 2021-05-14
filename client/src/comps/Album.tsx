@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Pagination from './Pagination'
 import axios from 'axios'
 
 interface Title {
@@ -9,20 +10,38 @@ interface Title {
 
 const Album = () => {
 
-    const [post, setPost] = useState<Title[]>([])
-    // Fetch data from jsonplaceholder
+    const [posts, setPosts] = useState<Title[]>([])
+    const [currentPosts, setCurrentPosts] = useState<Title[]>([])
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage] = useState(5)
+
+    const pageNumber = []
+    const maxPageNumber = posts.length/postsPerPage
+
+    for (let i = 1; i < maxPageNumber ; i++){
+        pageNumber.push(i)
+    }
+
+    const lastPostIndex = currentPage * postsPerPage
+    const firstPostIndex = lastPostIndex - postsPerPage
+
+
+    // Fetch data from jsonplaceholder, then select out posts for page
     const fetchPosts = async () => {
         try {
             const titles = await axios.get('https://jsonplaceholder.typicode.com/albums')
-            await setPost(titles.data)
+            await setPosts(titles.data)
+            const slicePosts = await posts.slice(firstPostIndex, lastPostIndex)
+            console.log(slicePosts)
+            await setCurrentPosts(slicePosts)            
         } catch (error) {
             console.log(error)
         }
     }
-
     const deleteItem = (id: number) => {
-        const deleteItem = post.filter(item => item.id !== id)
-        setPost(deleteItem)
+        const deleteItem = posts.filter(item => item.id !== id)
+        setPosts(deleteItem)
     }
 
     // get data on render
@@ -30,10 +49,14 @@ const Album = () => {
         fetchPosts()
     }, [])
 
+    useEffect(() => {
+        fetchPosts()
+    }, [currentPage])
+
     return (
         <div>
-            <h1>Album</h1>
-            {post.map((item: Title) => 
+            <div>Album</div>
+            {currentPosts.map((item: Title) => 
                 <div key={item.id}>
                 <h4>Title:</h4>
                 <p>{item.title}</p>
@@ -41,6 +64,12 @@ const Album = () => {
                 <button onClick={() => deleteItem(item.id)}>Delete</button>
                 </div>
             )}
+        
+            <div>
+                {pageNumber.map(item => 
+                    <button key={item} onClick={() => setCurrentPage(item)}>{item}</button>
+                )}
+            </div>
         </div>
     )
 }
