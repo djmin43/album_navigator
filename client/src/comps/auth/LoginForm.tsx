@@ -8,24 +8,24 @@ interface UserAuth {
 
 
 const LoginForm = () => {
+    // Dummy email and password
+    const userAuthInfo = {
+        email: 'test@test.com',
+        password: 'test'
+    }
     const [userAuth, setUserAuth] = useState<UserAuth>({
         email: '',
         password: ''
     })
-    // Dummy email and password
-       const userAuthInfo = {
-        email: 'test@test.com',
-        password: 'test'
-    }
 
     // Login fail handler
     const [errorMessage, setErrorMessage] = useState<any>('')
 
-    // Auth 
+    // Auth, if fail, then validate the form
     const auth = () => {
         if (userAuthInfo.email === userAuth.email && userAuthInfo.password === userAuth.password) {
             setErrorMessage('log in successful')
-            console.log('log in successful')
+            Cookies.set('member', 'success', {expires: 3})
         } else formValidation()
     }
 
@@ -47,22 +47,15 @@ const LoginForm = () => {
 
     // Submit Form Control
     const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
         setUserAuth({
             ...userAuth,
             [e.target.name]: e.target.value
         })
     }
-    const handleSubmit = (e: any) => {
-        e.preventDefault()
-        auth()
-    }
-
- 
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={auth}>
                 <label>Email:
                     <input name="email" type="text" value={userAuth.email} onChange={handleChange}></input>
                 </label>
