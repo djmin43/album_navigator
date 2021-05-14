@@ -33,6 +33,12 @@
     margin-bottom: 2vw;
 }
 
+.auth-container span {
+    color: #e33371;
+    font-weight: 500;
+    padding-top: 2vw; 
+}
+
 .auth-container form label {
     display: block;
     font-size: 24px;

@@ -75,7 +75,7 @@ const LoginForm = () => {
 
                 <button>Log in</button>
             </form>
-            {errorMessage}
+            <span>{errorMessage}</span>
         </div>
     )
 }
