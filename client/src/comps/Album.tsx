@@ -13,10 +13,8 @@ const Album = () => {
 
     const [posts, setPosts] = useState<Title[]>([])
 
-    const [postsPerPage] = useState(5)
-    const [currentPage, setCurrentPage] = useState(1)
-
-
+    const [postsPerPage] = useState<number>(5)
+    const [currentPage, setCurrentPage] = useState<number>(1)
 
     // Fetch data from jsonplaceholder
     const fetchPosts = async () => {

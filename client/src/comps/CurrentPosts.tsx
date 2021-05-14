@@ -6,12 +6,20 @@ interface Title {
     title: string
 }
 
-const CurrentPosts = ({posts, deleteItem, currentPage}: any) => {
+interface CurrentPostsProps {
+    posts: Title[];
+    deleteItem: (id: number) => void;
+    currentPage: number; 
+}
+
+const CurrentPosts = ({posts, deleteItem, currentPage}: CurrentPostsProps) => {
 
     const [currentPosts, setCurrentPosts] = useState<Title[]>([])
 
-    const [postsPerPage] = useState(5)
+    // Pagination logic for 5 or more posts each time.
+    const [postsPerPage] = useState<number>(5)
 
+    // Setting out post index.
     const lastPostIndex = currentPage * postsPerPage
     const firstPostIndex = lastPostIndex - postsPerPage
 
@@ -29,12 +37,13 @@ const CurrentPosts = ({posts, deleteItem, currentPage}: any) => {
         <div>
             {currentPosts.map((item: Title) => 
                 <div key={item.id}>
+                {item.id}
                 <h4>Title:</h4>
                 <p>{item.title}</p>
                 <h4>User ID</h4>
                 <p>{item.userId}</p>
                 <img src="https://via.placeholder.com/150" alt="album"/>
-                <button onClick={() => deleteItem(item.id)}>Delete</button>
+                <button onClick={() => deleteItem(item.id)}>Delete a post</button>
                 </div>
             )}
         </div>

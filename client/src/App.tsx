@@ -1,10 +1,11 @@
 import Album from './comps/Album'
-import Pagination from './comps/Pagination'
+import Authentication from './comps/Authentication'
 import './App.css';
 
 function App() {
   return (
     <div>
+        <Authentication />
         <Album />
     </div>
   );

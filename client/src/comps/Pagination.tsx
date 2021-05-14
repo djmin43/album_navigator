@@ -3,7 +3,7 @@ import React from 'react'
 interface PaginationProps {
     currentPage: number;
     maxPageNumber: number;
-    paginate: any;
+    paginate: (pageNumber: number) => void;
 
 }
 
